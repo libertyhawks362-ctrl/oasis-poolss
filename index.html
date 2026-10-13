@@ -1,131 +1,1485 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oasis Pool Services | Swimming Pool, Jacuzzi & Water Treatment</title>
-    
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- jQuery & Water Ripples Plugin -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.4/jquery.ripples.min.js"></script>
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background-color: #f8fafc; color: #334155; line-height: 1.6; }
-        
-        /* Navigation Header */
-        header { 
-            background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 18px 6%; 
-        }
-        .logo { font-size: 24px; font-weight: 700; color: #0284c7; display: flex; align-items: center; gap: 10px; }
-        .nav-links { display: flex; gap: 25px; list-style: none; }
-        .nav-links a { text-decoration: none; color: #1e293b; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: #0284c7; }
-        .header-cta { background: #0284c7; color: white; padding: 10px 22px; border-radius: 30px; text-decoration: none; font-weight: 600; }
-        
-        /* Hero Section with Interactive Water Ripple Effect */
-        .hero { 
-            min-height: 100vh; 
-            position: relative;
-            background: linear-gradient(rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.45)), 
-                        url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            color: white; 
-            padding: 120px 20px 60px 20px; 
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .hero h1, .hero p, .hero-btns { position: relative; z-index: 3; }
-        .hero h1 { font-size: 52px; font-weight: 700; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.6); }
-        .hero p { font-size: 20px; max-width: 800px; margin-bottom: 35px; color: #f1f5f9; font-weight: 300; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-        .btn-primary { background: #0284c7; color: white; padding: 14px 32px; font-size: 16px; border-radius: 30px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4); transition: 0.3s; }
-        .btn-primary:hover { transform: translateY(-3px); background: #0369a1; }
-        .btn-whatsapp { background: #25d366; color: white; padding: 14px 32px; font-size: 16px; border-radius: 30px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); transition: 0.3s; }
-        .btn-whatsapp:hover { transform: translateY(-3px); }
+  <meta name="theme-color" content="#071d2b">
+  <meta name="description" content="Oasis Pool Services - Swimming pool maintenance, jacuzzi servicing, pool cleaning and water treatment. Contact us for service enquiries.">
 
-        /* Counter Section */
-        .stats-section {
-            background: #0284c7;
-            color: white;
-            padding: 40px 8%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-        .stat-item h3 { font-size: 42px; font-weight: 700; margin-bottom: 5px; }
-        .stat-item p { font-size: 16px; font-weight: 500; opacity: 0.9; }
+  <title>Oasis Pool Services | Swimming Pools & Water Treatment</title>
 
-        /* About Section */
-        .about-section { padding: 90px 8%; background: white; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .about-text h2 { font-size: 36px; color: #0f172a; margin-bottom: 20px; font-weight: 700; }
-        .about-text p { color: #475569; margin-bottom: 20px; font-size: 16px; }
-        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; }
-        .feature-item { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #0f172a; }
-        .feature-item i { color: #0284c7; }
-        .about-img { width: 100%; height: 420px; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        /* Services Section */
-        .services-section { padding: 90px 8%; background: #f1f5f9; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 38px; color: #0f172a; font-weight: 700; }
-        .section-header p { color: #64748b; font-size: 18px; margin-top: 10px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: 0.3s; display: flex; flex-direction: column; }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
-        .service-card img { width: 100%; height: 220px; object-fit: cover; }
-        .service-card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .service-card-body h3 { font-size: 22px; color: #0f172a; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .service-card-body h3 i { color: #0284c7; }
-        .service-card-body p { color: #64748b; font-size: 15px; margin-bottom: 20px; flex-grow: 1; }
-        .card-btn { align-self: start; color: #0284c7; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  <style>
+    :root {
+      --navy: #071d2b;
+      --navy-light: #103449;
+      --blue: #0789b9;
+      --cyan: #49d6df;
+      --light: #f3f8fb;
+      --text: #526575;
+      --white: #ffffff;
+      --radius: 18px;
+      --shadow: 0 12px 35px rgba(7, 29, 43, .09);
+    }
 
-        /* Projects Gallery Section */
-        .gallery-section { padding: 90px 8%; background: white; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .gallery-card { position: relative; border-radius: 16px; overflow: hidden; height: 280px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .gallery-card:hover img { transform: scale(1.08); }
-        .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(15, 23, 42, 0.9)); padding: 20px; color: white; }
-        .gallery-overlay h4 { font-size: 20px; font-weight: 600; }
-        .gallery-overlay p { font-size: 14px; color: #38bdf8; margin-top: 4px; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Customer Reviews Section */
-        .reviews-section { padding: 90px 8%; background: #f1f5f9; }
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .review-card { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .stars { color: #f59e0b; margin-bottom: 15px; font-size: 18px; }
-        .review-text { color: #475569; font-style: italic; font-size: 15px; margin-bottom: 20px; }
-        .client-info h5 { color: #0f172a; font-weight: 600; font-size: 16px; }
-        .client-info p { color: #94a3b8; font-size: 13px; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
-        /* Contact & Location Section */
-        .contact-section { padding: 80px 8%; background: #0f172a; color: white; text-align: center; }
-        .contact-box { max-width: 800px; margin: 0 auto; }
-        .contact-box h2 { font-size: 36px; margin-bottom: 15px; }
-        .contact-box p { color: #94a3b8; font-size: 18px; margin-bottom: 25px; }
-        .address-box { font-size: 18px; color: #38bdf8; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .phone-display { font-size: 28px; font-weight: 700; color: #ffffff; margin-bottom: 30px; display: inline-block; background: rgba(255,255,255,0.08); padding: 12px 30px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); text-decoration: none; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.7;
+    }
 
-        /* Floating WhatsApp Button */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; }
-        footer { background: #020617; color: #64748b; text
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--blue);
+      background: #e4f7fb;
+      border-radius: 30px;
+      padding: 6px 15px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .section-heading {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.25;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .section-description {
+      color: var(--text);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 23px;
+      border-radius: 9px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 14px;
+      transition: .25s;
+      cursor: pointer;
+      border: 0;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--blue);
+      box-shadow: 0 7px 20px rgba(7, 137, 185, .24);
+    }
+
+    .btn-primary:hover {
+      background: #056d95;
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: #20c76a;
+      color: white;
+    }
+
+    .btn-whatsapp:hover {
+      background: #14a955;
+      transform: translateY(-2px);
+    }
+
+    /* Header */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 18px rgba(7,29,43,.07);
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .logo-icon {
+      width: 43px;
+      height: 43px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      font-size: 20px;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 10px;
+      color: var(--text);
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #314653;
+      font-size: 13px;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-cta {
+      padding: 10px 17px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: white !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: var(--light);
+      color: var(--navy);
+      border: 0;
+      border-radius: 8px;
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 650px;
+      min-height: min(760px, calc(100svh - 78px));
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(4,24,37,.88) 0%, rgba(4,24,37,.66) 50%, rgba(4,24,37,.15) 100%),
+        url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=2000&q=85')
+        center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 750px;
+      padding: 100px 0;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(255,255,255,.3);
+      background: rgba(255,255,255,.09);
+      border-radius: 30px;
+      padding: 8px 15px;
+      font-size: 12px;
+      margin-bottom: 25px;
+      color: #d5fbff;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 610px;
+      font-size: 16px;
+      color: #e0eaf0;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero .btn {
+      min-height: 50px;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.65);
+      color: white;
+      background: rgba(255,255,255,.08);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--navy);
+    }
+
+    /* Feature strip */
+
+    .feature-strip {
+      background: var(--navy);
+      color: white;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .feature {
+      padding: 26px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+
+    .feature:last-child {
+      border: 0;
+    }
+
+    .feature i {
+      color: var(--cyan);
+      font-size: 25px;
+    }
+
+    .feature strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .feature span {
+      color: #aabdc8;
+      font-size: 11px;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .image-note {
+      position: absolute;
+      bottom: 22px;
+      right: -18px;
+      background: white;
+      padding: 18px 22px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      max-width: 230px;
+    }
+
+    .image-note i {
+      color: var(--blue);
+      font-size: 22px;
+      margin-bottom: 7px;
+    }
+
+    .image-note strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .image-note span {
+      color: var(--text);
+      font-size: 11px;
+    }
+
+    .about-text > p {
+      color: var(--text);
+      margin: 18px 0;
+      font-size: 14px;
+    }
+
+    .check-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 25px 0 30px;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .check-list i {
+      color: var(--blue);
+    }
+
+    /* Services */
+
+    .services-section {
+      background: var(--light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(7,29,43,.045);
+      border: 1px solid #e8f0f4;
+      transition: .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: .4s;
+    }
+
+    .service-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .service-body {
+      padding: 25px;
+    }
+
+    .service-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #e6f8fc;
+      color: var(--blue);
+      font-size: 20px;
+      margin-top: -48px;
+      position: relative;
+      border: 4px solid white;
+      box-sizing: content-box;
+    }
+
+    .service-body h3 {
+      font-size: 18px;
+      margin: 14px 0 10px;
+    }
+
+    .service-body p {
+      color: var(--text);
+      font-size: 13px;
+      min-height: 66px;
+    }
+
+    .service-link {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 17px;
+    }
+
+    /* Gallery */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      grid-template-rows: 230px 230px;
+      gap: 18px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      background: var(--navy);
+    }
+
+    .gallery-item:first-child {
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.07);
+      opacity: .8;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 40px 20px 18px;
+      color: white;
+      background: linear-gradient(transparent, rgba(4,24,37,.9));
+    }
+
+    .gallery-caption h3 {
+      font-size: 16px;
+    }
+
+    .gallery-caption p {
+      color: #9cebf1;
+      font-size: 12px;
+    }
+
+    /* Why choose us */
+
+    .why-section {
+      background: var(--navy);
+      color: white;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-top: 42px;
+    }
+
+    .why-card {
+      padding: 25px 20px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 15px;
+      background: rgba(255,255,255,.035);
+    }
+
+    .why-card i {
+      color: var(--cyan);
+      font-size: 27px;
+      margin-bottom: 20px;
+    }
+
+    .why-card h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      color: #b1c3ce;
+      font-size: 12px;
+    }
+
+    /* Contact */
+
+    .contact-section {
+      background: #eaf7fb;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 45px;
+      align-items: start;
+    }
+
+    .contact-info > p {
+      color: var(--text);
+      font-size: 14px;
+      margin: 16px 0 28px;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      margin: 22px 0;
+    }
+
+    .contact-detail > i {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: white;
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      box-shadow: 0 4px 14px rgba(7,29,43,.05);
+    }
+
+    .contact-detail strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .contact-detail span,
+    .contact-detail a {
+      color: var(--text);
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form h3 {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .contact-form > p {
+      color: var(--text);
+      font-size: 12px;
+      margin-bottom: 22px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 13px;
+      border: 1px solid #dce7ed;
+      border-radius: 8px;
+      font: inherit;
+      font-size: 13px;
+      color: var(--navy);
+      background: white;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(7,137,185,.1);
+    }
+
+    .form-group textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+    }
+
+    .form-note {
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--text);
+    }
+
+    /* Footer */
+
+    .footer {
+      background: #04131d;
+      color: white;
+      padding: 55px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 45px;
+      padding-bottom: 40px;
+    }
+
+    .footer .logo {
+      color: white;
+      display: inline-flex;
+      margin-bottom: 18px;
+    }
+
+    .footer-about p {
+      max-width: 350px;
+      color: #a5b7c2;
+      font-size: 12px;
+    }
+
+    .footer h4 {
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #a5b7c2;
+      font-size: 12px;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    .footer-bottom {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      color: #8ca0ac;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      z-index: 1100;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: #20c76a;
+      box-shadow: 0 6px 24px rgba(0,0,0,.22);
+      font-size: 29px;
+      transition: .2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* Responsive layout */
+
+    @media (max-width: 1000px) {
+      .nav-links { gap: 15px; }
+      .nav-links a { font-size: 12px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { gap: 40px; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 760px) {
+      .section { padding: 65px 0; }
+
+      .navbar { min-height: 70px; }
+      .logo { font-size: 17px; }
+      .logo-icon { width: 39px; height: 39px; }
+
+      .menu-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 20px 5% 25px;
+        background: white;
+        box-shadow: 0 12px 20px rgba(7,29,43,.1);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links li a {
+        display: block;
+        padding: 12px 0;
+        font-size: 14px;
+      }
+
+      .nav-links .nav-cta {
+        display: inline-block;
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      .hero {
+        min-height: 620px;
+        background-position: 58% center;
+      }
+
+      .hero-content { padding: 75px 0; }
+      .hero h1 { letter-spacing: -1px; }
+      .hero p { font-size: 14px; }
+
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature {
+        justify-content: flex-start;
+        padding: 18px 8%;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.12);
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image { height: 340px; }
+      .image-note { right: 10px; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card img { height: 235px; }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 190px);
+      }
+
+      .gallery-item:first-child {
+        grid-row: auto;
+        grid-column: span 2;
+      }
+
+      .why-grid { grid-template-columns: 1fr 1fr; }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .footer-about { grid-column: span 2; }
+    }
+
+    @media (max-width: 460px) {
+      .container { width: 90%; }
+      .hero { min-height: 590px; }
+      .hero h1 { font-size: 39px; }
+      .hero-buttons { flex-direction: column; align-items: stretch; }
+      .hero-buttons .btn { width: 100%; }
+
+      .check-list { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-rows: repeat(3, 160px); gap: 10px; }
+      .gallery-caption { padding: 30px 12px 12px; }
+      .gallery-caption h3 { font-size: 13px; }
+      .gallery-caption p { font-size: 10px; }
+
+      .why-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .contact-form { padding: 22px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-about { grid-column: auto; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a href="#home" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-water"></i></span>
+        <span>OASIS<small>POOL SERVICES</small></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Our Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <i class="fa-solid fa-droplet"></i>
+            YOUR POOL CARE PARTNER
+          </div>
+
+          <h1>Make Every Day<br>A <span>Poolside</span> Escape.</h1>
+
+          <p>
+            Professional swimming pool maintenance, jacuzzi servicing
+            and water treatment solutions to help keep your water
+            clean, clear and inviting.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#services" class="btn btn-primary">
+              Explore Our Services <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <i class="fa-regular fa-paper-plane"></i> Contact Our Team
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="feature-strip">
+      <div class="container feature-grid">
+        <div class="feature">
+          <i class="fa-solid fa-water"></i>
+          <div>
+            <strong>Pool Maintenance</strong>
+            <span>Cleaning and upkeep</span>
+          </div>
+        </div>
+
+        <div class="feature">
+          <i class="fa-solid fa-flask"></i>
+          <div>
+            <strong>Water Treatment</strong>
+            <span>Water quality solutions</span>
+          </div>
+        </div>
+
+        <div class="feature">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+          <div>
+            <strong>Equipment Care</strong>
+            <span>Servicing and support</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-image-wrap">
+          <img class="about-image"
+            src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=1000&q=80"
+            alt="Beautiful outdoor swimming pool"
+            loading="lazy">
+
+          <div class="image-note">
+            <i class="fa-solid fa-droplet"></i>
+            <strong>Your Pool, Our Priority</strong>
+            <span>Care for cleaner, more enjoyable swimming.</span>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <span class="section-label">About Oasis</span>
+          <h2 class="section-heading">Complete Care for Your Swimming Pool</h2>
+
+          <p>
+            At Oasis Pool Services, we aim to make pool ownership easier
+            with practical pool care, cleaning, equipment servicing and
+            water treatment solutions.
+          </p>
+
+          <p>
+            From routine maintenance to jacuzzi care, our services can
+            be tailored to the needs of your property and pool.
+            Contact us to discuss your requirements.
+          </p>
+
+          <ul class="check-list">
+            <li><i class="fa-solid fa-circle-check"></i> Pool Cleaning</li>
+            <li><i class="fa-solid fa-circle-check"></i> Jacuzzi Servicing</li>
+            <li><i class="fa-solid fa-circle-check"></i> Water Treatment</li>
+            <li><i class="fa-solid fa-circle-check"></i> Equipment Support</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-primary">
+            Talk to Our Team <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">What We Do</span>
+          <h2 class="section-heading">Our Pool Care Services</h2>
+          <p class="section-description">
+            Pool care and water solutions designed around your property,
+            equipment and maintenance needs.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80"
+              alt="Swimming pool maintenance"
+              loading="lazy">
+            <div class="service-body">
+              <span class="service-icon"><i class="fa-solid fa-water"></i></span>
+              <h3>Swimming Pool Maintenance</h3>
+              <p>Routine pool cleaning, upkeep and maintenance support to help keep your swimming pool looking its best.</p>
+              <a class="service-link" href="#contact" data-service="Swimming Pool Maintenance">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1564540583246-934409427776?auto=format&fit=crop&w=800&q=80"
+              alt="Pool water and treatment"
+              loading="lazy">
+            <div class="service-body">
+              <span class="service-icon"><i class="fa-solid fa-flask"></i></span>
+              <h3>Water Treatment</h3>
+              <p>Water testing and appropriate treatment solutions to support balanced, clean and inviting pool water.</p>
+              <a class="service-link" href="#contact" data-service="Water Treatment">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
+              alt="Relaxing spa and jacuzzi"
+              loading="lazy">
+            <div class="service-body">
+              <span class="service-icon"><i class="fa-solid fa-hot-tub-person"></i></span>
+              <h3>Jacuzzi & Spa Care</h3>
+              <p>Jacuzzi cleaning, maintenance and servicing support for a comfortable and relaxing spa experience.</p>
+              <a class="service-link" href="#contact" data-service="Jacuzzi and Spa Care">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"
+              alt="Technical equipment maintenance"
+              loading="lazy">
+            <div class="service-body">
+              <span class="service-icon"><i class="fa-solid fa-gears"></i></span>
+              <h3>Pump & Filter Support</h3>
+              <p>Assistance with pool pumps, filtration systems and equipment maintenance based on your requirements.</p>
+              <a class="service-link" href="#contact" data-service="Pump and Filter Support">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=800&q=80"
+              alt="Residential swimming pool"
+              loading="lazy">
+            <div class="service-body">
+              <span class="service-icon"><i class="fa-solid fa-house"></i></span>
+              <h3>Residential Pool Care</h3>
+              <p>Pool maintenance options for villas, homes and private residential swimming pools.</p>
+              <a class="service-link" href="#contact" data-service="Residential Pool Care">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=800&q=80"
+              alt="Outdoor pool project"
+              loading="lazy">
+            <div class="service-body">
+              <span class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+              <h3>Pool Equipment Care</h3>
+              <p>Help with pool equipment inspections, maintenance needs and service enquiries.</p>
+              <a class="service-link" href="#contact" data-service="Pool Equipment Care">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Pool Inspiration</span>
+          <h2 class="section-heading">Explore Poolside Living</h2>
+          <p class="section-description">
+            A selection of pool and spa imagery to showcase the experience
+            we help our customers maintain.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1000&q=80"
+              alt="Outdoor swimming pool"
+              loading="lazy">
+            <div class="gallery-caption">
+              <h3>Luxury Poolside</h3>
+              <p>Swimming pool inspiration</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=700&q=80"
+              alt="Modern pool design"
+              loading="lazy">
+            <div class="gallery-caption">
+              <h3>Modern Pools</h3>
+              <p>Clean and inviting spaces</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1564540583246-934409427776?auto=format&fit=crop&w=700&q=80"
+              alt="Blue swimming pool water"
+              loading="lazy">
+            <div class="gallery-caption">
+              <h3>Crystal Blue</h3>
+              <p>Pool water inspiration</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=700&q=80"
+              alt="Spa and wellness space"
+              loading="lazy">
+            <div class="gallery-caption">
+              <h3>Spa & Wellness</h3>
+              <p>Relaxation at home</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=700&q=80"
+              alt="Swimming pool outdoor setting"
+              loading="lazy">
+            <div class="gallery-caption">
+              <h3>Outdoor Living</h3>
+              <p>Make more of your pool</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Oasis -->
+    <section class="section why-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Why Choose Us</span>
+          <h2 class="section-heading">Pool Care Made Simpler</h2>
+          <p class="section-description" style="color:#b1c3ce">
+            Practical service options and support for your pool care needs.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card">
+            <i class="fa-solid fa-clipboard-check"></i>
+            <h3>Careful Attention</h3>
+            <p>Maintenance options tailored to your pool and equipment.</p>
+          </article>
+
+          <article class="why-card">
+            <i class="fa-solid fa-droplet"></i>
+            <h3>Water Care</h3>
+            <p>Support for cleaning and appropriate water treatment.</p>
+          </article>
+
+          <article class="why-card">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <h3>Equipment Support</h3>
+            <p>Help with pool systems and maintenance requirements.</p>
+          </article>
+
+          <article class="why-card">
+            <i class="fa-solid fa-comments"></i>
+            <h3>Direct Enquiries</h3>
+            <p>Contact our team to discuss your service requirements.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+
+        <div class="contact-info">
+          <span class="section-label">Get In Touch</span>
+          <h2 class="section-heading">Let's Talk About Your Pool</h2>
+          <p>
+            Need pool maintenance, jacuzzi servicing or water treatment?
+            Send us an enquiry and tell us what you need.
+          </p>
+
+          <div class="contact-detail">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div>
+              <strong>WhatsApp</strong>
+              <a href="#" id="contactWhatsapp">Add your WhatsApp number</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong>Service Location</strong>
+              <span>Add your city or service area</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <i class="fa-regular fa-clock"></i>
+            <div>
+              <strong>Enquiries</strong>
+              <span>Contact us to discuss availability and service timing.</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3>Request a Service</h3>
+          <p>Fill in your details to start a WhatsApp enquiry.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input id="name" name="name" type="text"
+                placeholder="Enter your name" required maxlength="100">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Your Phone</label>
+              <input id="phone" name="phone" type="tel"
+                placeholder="Your contact number" maxlength="30">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service Required *</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option>Swimming Pool Maintenance</option>
+              <option>Water Treatment</option>
+              <option>Jacuzzi and Spa Care</option>
+              <option>Pump and Filter Support</option>
+              <option>Residential Pool Care</option>
+              <option>Pool Equipment Care</option>
+              <option>Other Enquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message"
+              placeholder="Tell us about your pool or service needs..."
+              required maxlength="1500"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            Send Enquiry on WhatsApp
+          </button>
+
+          <p class="form-note">
+            This form opens WhatsApp with your enquiry. It does not send
+            or store your information on this website.
+          </p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-about">
+          <a href="#home" class="logo">
+            <span class="logo-icon"><i class="fa-solid fa-water"></i></span>
+            <span>OASIS<small>POOL SERVICES</small></span>
+          </a>
+
+          <p>
+            Swimming pool maintenance, jacuzzi servicing and water
+            treatment solutions. Contact us to discuss your pool care needs.
+          </p>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#projects">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Pool Maintenance</a></li>
+            <li><a href="#services">Water Treatment</a></li>
+            <li><a href="#services">Jacuzzi & Spa</a></li>
+            <li><a href="#services">Pump & Filter Support</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Oasis Pool Services. All rights reserved.</span>
+        <span>Designed for a better poolside experience.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="#" class="whatsapp-float" id="floatingWhatsapp"
+    aria-label="Contact Oasis Pool Services on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    /*
+      IMPORTANT:
+      Replace this example with your real WhatsApp number.
+      Use the country code and digits only, without +, spaces or dashes.
+      Example format: 9715XXXXXXXX
+    */
+    const WHATSAPP_NUMBER = "971500000000";
+
+    function whatsappIsConfigured() {
+      return /^\d{8,15}$/.test(WHATSAPP_NUMBER)
+        && WHATSAPP_NUMBER !== "971500000000";
+    }
+
+    function openWhatsApp(message) {
+      if (!whatsappIsConfigured()) {
+        alert("Please add your real WhatsApp number in the website code first.");
+        return;
+      }
+
+      const url = "https://wa.me/" + WHATSAPP_NUMBER
+        + "?text=" + encodeURIComponent(message);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      menuToggle.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    // Close mobile menu after navigation
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
+
+    // WhatsApp links
+    const whatsappMessage = "Hello Oasis Pool Services, I would like to enquire about your services.";
+
+    document.getElementById("floatingWhatsapp").addEventListener("click", function (event) {
+      event.preventDefault();
+      openWhatsApp(whatsappMessage);
+    });
+
+    document.getElementById("contactWhatsapp").addEventListener("click", function (event) {
+      event.preventDefault();
+      openWhatsApp(whatsappMessage);
+    });
+
+    // Service enquiry buttons preselect the service
+    document.querySelectorAll("[data-service]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        document.getElementById("service").value = link.dataset.service;
+      });
+    });
+
+    // Contact form opens a prefilled WhatsApp message
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!this.reportValidity()) return;
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const service = document.getElementById("service").value;
+      const message = document.getElementById("message").value.trim();
+
+      const text =
+        "Hello Oasis Pool Services!\n\n" +
+        "Name: " + name + "\n" +
+        "Phone: " + (phone || "Not provided") + "\n" +
+        "Service: " + service + "\n" +
+        "Message: " + message;
+
+      openWhatsApp(text);
+    });
+
+    // Automatic copyright year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
